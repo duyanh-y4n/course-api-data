@@ -1,6 +1,13 @@
 package io.javabrains.springbootstarter.topic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+// Tell JPA that the objects of this class will be stored as entity in sql
+@Entity
 public class Topic {
+    // Tell JPA that the attribute right below is the main key (Id) of the table
+    @Id
     private  String id;
     private  String name;
     private  String description;
