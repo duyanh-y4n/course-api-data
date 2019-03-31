@@ -22,7 +22,7 @@ public class TopicController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/topics") //POST request
-    // expect a Topic object in request body as payload, and then pass it to methode
+    // expect a Course object in request body as payload, and then pass it to methode
     public void addTopic(@RequestBody Topic topic) {
         this.topicService.addTopic(topic);
     }
