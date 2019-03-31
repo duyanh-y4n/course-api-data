@@ -4,6 +4,7 @@ import io.javabrains.springbootstarter.topic.Topic;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 // Tell JPA that the objects of this class will be stored as entity in sql
 @Entity
@@ -13,6 +14,8 @@ public class Course {
     private String id;
     private String name;
     private String description;
+
+    @ManyToOne //relationship btw course and topic
     private Topic topic;
 
     public Course(String id, String name, String description, String topicId) {
@@ -50,9 +53,7 @@ public class Course {
         this.description = description;
     }
 
-    public void setTopic(String topicId, String topicName, String topicSdescription) {
-        this.topic.setId(topicId);
-        this.topic.setName(topicName);
-        this.topic.setDescription(topicSdescription);
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 }

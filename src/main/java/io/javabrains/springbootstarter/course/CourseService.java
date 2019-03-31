@@ -15,13 +15,13 @@ public class CourseService {
 
     private List<Course> courses = new ArrayList<>();
 
-    public List<Course> getAllCourses() {
+    public List<Course> getAllCourses(String topicId) {
         List<Course> courses = new ArrayList<Course>();
-        courseRepository.findAll().forEach(courses::add);
+        courseRepository.findByTopicId(topicId).forEach(courses::add);
         return courses;
     }
 
-    public Course getCourseById(String id) {
+    public Course getCourseByName(String id) {
         return this.courseRepository.findById(id).orElse(null);
     }
 
